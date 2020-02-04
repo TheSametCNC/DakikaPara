@@ -27,7 +27,7 @@ use onebone\economyapi\EconomyAPI;
 
 class Base extends PluginBase implements Listener{
 	public function onEnable(){
-		$this->getLogger()->info("DakikaPara Aktif");
+		$this->getLogger()->info("§aDakikaPara Aktif");
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 	}
 	public function giris(GirisEvent $event){
