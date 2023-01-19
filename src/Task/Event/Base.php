@@ -5,7 +5,7 @@
  * 
  * @name: TaskEvent
  * @version: 0.1
- * @api: 3.00
+ * @api: 4.0.0
  * @author: SametCNC 
  *
  *  ____    _    __  __ _____ _____ 
@@ -19,18 +19,17 @@ namespace Task\Event;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\Server;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\event\player\PlayerJoinEvent as GirisEvent;
 use pocketmine\event\Listener;
 use Task\Event\TaskEvent;
-use onebone\economyapi\EconomyAPI;
 
 class Base extends PluginBase implements Listener{
 	public function onEnable(){
 		$this->getLogger()->info("§aDakikaPara Aktif");
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 	}
-	public function giris(GirisEvent $event){
+	public function onJoin(GirisEvent $event){
 		$player = $event->getPlayer();
 		$this->getScheduler()->scheduleRepeatingTask(new TaskEvent(), 20 * 600);
 	}
