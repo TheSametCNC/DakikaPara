@@ -5,7 +5,7 @@
  * 
  * @name: TaskEvent
  * @version: 0.1
- * @api: 4.0.0
+ * @api: 5.0.0
  * @author: SametCNC 
  *
  *  ____    _    __  __ _____ _____ 
@@ -25,11 +25,11 @@ use pocketmine\event\Listener;
 use Task\Event\TaskEvent;
 
 class Base extends PluginBase implements Listener{
-	public function onEnable(){
+	public function onEnable(): void {
 		$this->getLogger()->info("§aDakikaPara Aktif");
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 	}
-	public function onJoin(GirisEvent $event){
+	public function onJoin(GirisEvent $event): void {
 		$player = $event->getPlayer();
 		$this->getScheduler()->scheduleRepeatingTask(new TaskEvent(), 20 * 600);
 	}
